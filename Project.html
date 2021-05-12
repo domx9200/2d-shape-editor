@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+        <title>2D Shape Editor</title>
+
+        <script type="text/javascript" src="Common/webgl-utils.js"></script>
+        <script type="text/javascript" src="Common/MV.js"></script>
+        <script type="text/javascript" src="ProjectMain.js"></script>
+        <script type="text/javascript" src="ProjectShapeCreate.js"></script>
+        <script type="text/javascript" src="ProjectScale.js"></script>
+        <script type="text/javascript" src="ProjectRotate.js"></script>
+    </head>
+
+    <body>
+        <canvas id="canvas" width="850" height="850" style="border:1px solid #000000;">
+        Oops ... your browser doesn't support the HTML5 canvas element
+        </canvas>
+        <br>
+        <div style="border: 1px solid; width: 850px;">
+        <input type="color" onchange="changeFill(this.value)">
+        <select id="changeType" onchange="shapeChanger(this.value)">
+            <option value="Line">Line</option>
+            <option value="Circle">Circle</option>
+            <option value="Ellipse">Ellipse</option>
+            <option value="Rectangle">Rectangle</option>
+            <option value="Square">Square</option>
+            <option value="Triangle">Triangle</option>
+            <option value="Polygon">Polygon</option>
+            <option value="Polyline">PolyLine</option>
+            <option value="Curve">Curve</option>
+        </select>
+        <select id="changeMode" onchange="modeChanger(this.value)">
+            <option value="Create">Create</option>
+            <option value="Translate">Translate</option>
+            <option value="Scale">Scale</option>
+            <option value="Rotate">Rotate</option>
+        </select>
+            <button onclick="reset()">New Canvas</button>
+            <button onclick="copySelected()">Copy Selected Object</button>
+            <button onclick="paste()" id="pasteButton" hidden>Paste Copied Object</button>
+            <Button onclick="savetoJSONFile()" id="saveButton">Save Current Canvas</Button>
+            <button onclick="saveCanvasAsImage()">Save Current Canvas As Image</button><br>
+            <label for="fileField">Load Canvas From Json File</label><br>
+            <input id="fileField" type="file">
+            <div id="explain">To create a Line, all you need to do is click on two points on the canvas.</div>
+        </div>
+    </body>
+    <canvas id="hiddenCanvas" width="850" height="850" hidden></canvas>
+</html>
